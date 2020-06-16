@@ -62,20 +62,22 @@ public class InventoryController {
 		return res;
 	}
 	
-	@PostMapping("/create")
+	@PostMapping(path="/create")
 	public ResponseEntity<ItemResponseVO> createItem(@RequestBody ItemVO itemVo){
 		ItemResponseVO resVo = new ItemResponseVO();
 		ResponseEntity<ItemResponseVO> res = null;
 		String status = "";
 		try {
 			status = iItemService.createItem(itemVo);
-			if(status.equalsIgnoreCase(AppConstantVO.OPERATION_SUCCESS)){
+			if(AppConstantVO.OPERATION_SUCCESS.equalsIgnoreCase(status)){
 				resVo.setResponseText("Item has been created");
 				res = ResponseEntity.status(HttpStatus.CREATED).body(resVo);
 				
-			}else if (status.equalsIgnoreCase(AppConstantVO.DUPLICATE_ENTRY)){
+			}else if (AppConstantVO.DUPLICATE_ENTRY.equalsIgnoreCase(status)){
 				resVo.setResponseText("Item already exist");
 				res = ResponseEntity.status(HttpStatus.EXPECTATION_FAILED).body(resVo);
+			}else{
+				res = ResponseEntity.status(HttpStatus.NO_CONTENT).body(resVo);
 			}
 		} catch (ItemException e) {
 			e.printStackTrace();
@@ -92,11 +94,11 @@ public class InventoryController {
 		String status = "";
 		try {
 			status = iItemService.updateItem(itemVo);
-			if(status.equalsIgnoreCase(AppConstantVO.OPERATION_SUCCESS)){
+			if(AppConstantVO.OPERATION_SUCCESS.equalsIgnoreCase(status)){
 				resVo.setResponseText("Item has been updated");
 				res = ResponseEntity.status(HttpStatus.CREATED).body(resVo);
 				
-			}else if (status.equalsIgnoreCase(AppConstantVO.ENTRY_NOT_FOUND)){
+			}else if (AppConstantVO.ENTRY_NOT_FOUND.equalsIgnoreCase(status)){
 				resVo.setResponseText("Item does not exist");
 				res = ResponseEntity.status(HttpStatus.EXPECTATION_FAILED).body(resVo);
 			}else{
@@ -122,7 +124,7 @@ public class InventoryController {
 		try {
 			status = iItemService.deleteItem(id);
 			
-			if(status.equalsIgnoreCase(AppConstantVO.OPERATION_SUCCESS)){
+			if(AppConstantVO.OPERATION_SUCCESS.equalsIgnoreCase(status)){
 				resVo.setResponseText("Item has been deleted");
 				res = ResponseEntity.status(200).body(resVo);
 				

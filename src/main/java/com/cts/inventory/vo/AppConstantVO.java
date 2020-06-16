@@ -20,6 +20,8 @@ public class AppConstantVO {
 	
 	public static final String ENTRY_NOT_FOUND = "ENTRY_NOT_FOUND";
 	
+	public static final String OPERATION_NOT_CREATED="NOT_CREATED";
+	
 	public static final String EXCEPTION_OCURED = "Exception occured";
 	
 }

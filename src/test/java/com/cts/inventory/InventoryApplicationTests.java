@@ -3,8 +3,10 @@ package com.cts.inventory;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+
 
 import java.sql.SQLException;
 import java.util.Collections;
@@ -60,10 +62,7 @@ public class InventoryApplicationTests {
     private WebApplicationContext context;
     private MockMvc mockMvc;
 
-    ObjectMapper om = new ObjectMapper();
-    
-   // @Autowired MockMvc mvc;
-    
+    ObjectMapper objectMapper = new ObjectMapper();
     
     ItemVO itemVo = new ItemVO(1, "Item_updated", false);
     Item item = new Item(99, "Test-Mock-Obj", false);
@@ -77,10 +76,13 @@ public class InventoryApplicationTests {
     	List<Item> itemList = Collections.singletonList(item);
     	 
         try {
-        	Mockito.when(iItemRepoMock.findAll()).thenReturn(itemList);
+        	//Mockito.when(iItemRepoMock.findAll()).thenReturn(itemList);
+        	Mockito.when(iItemServiceMock.getAllItems()).thenReturn(itemList);
         	Mockito.when(iItemServiceMock.deleteItem(1)).thenReturn(AppConstantVO.OPERATION_SUCCESS);
 			Mockito.when(iItemServiceMock.updateItem(itemVo)).thenReturn(AppConstantVO.OPERATION_SUCCESS);
 			Mockito.when(iItemServiceMock.createItem(itemVo)).thenReturn(AppConstantVO.OPERATION_SUCCESS);
+			
+			
 		} catch (ItemException e) {
 			e.printStackTrace();
 		}
@@ -88,9 +90,8 @@ public class InventoryApplicationTests {
     
     
     @Test
-    public void testGetAllInventories() throws Exception {
-	    Item inv = new Item();
-	    String jsonRequest = om.writeValueAsString(inv);
+    public void testGetAllItemsCtrl() throws Exception {
+	    String jsonRequest = objectMapper.writeValueAsString(new Item());
 	    MvcResult result = (MvcResult) mockMvc
 	    		.perform(get("/item/get/allItems")
 	    		.content(jsonRequest)
@@ -98,7 +99,20 @@ public class InventoryApplicationTests {
 	    		.andExpect((ResultMatcher) status().is(302)).andReturn();
 	    
 	    String resultContent = result.getResponse().getContentAsString();
+	    Assert.assertTrue(resultContent, true);
+    }
+    
+    @Test
+    public void testCreateItemCtrl() throws Exception {
+	    String jsonRequest = objectMapper.writeValueAsString(new ItemVO(null, "New_Test_item", false));
+	    MvcResult result = (MvcResult) mockMvc
+	    		.perform(post("/item/create")
+	    		.content(jsonRequest)
+	    		.accept(MediaType.APPLICATION_JSON)
+	    		.contentType(MediaType.APPLICATION_JSON))
+	    		.andExpect((ResultMatcher) status().is(204)).andReturn();
 	    
+	    String resultContent = result.getResponse().getContentAsString();
 	    Assert.assertTrue(resultContent, true);
     }
     
