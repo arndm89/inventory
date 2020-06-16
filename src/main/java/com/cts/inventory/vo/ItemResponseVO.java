@@ -16,7 +16,9 @@ public class ItemResponseVO {
 	public List<Item> itemList;
 	
 	
-	public ItemResponseVO(){}
+	public ItemResponseVO(){
+		super();
+	}
 	
 	
 	

@@ -6,8 +6,6 @@ package com.cts.inventory.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.annotation.CachePut;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -20,10 +18,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.cts.inventory.exception.ItemException;
 import com.cts.inventory.model.Item;
 import com.cts.inventory.service.IItemService;
 import com.cts.inventory.vo.AppConstantVO;
 import com.cts.inventory.vo.ItemResponseVO;
+import com.cts.inventory.vo.ItemVO;
+
 
 /**
  * @author Arindam.Chowdhury@cognizant.com
@@ -34,9 +35,6 @@ import com.cts.inventory.vo.ItemResponseVO;
 public class InventoryController {
 	
 	@Autowired IItemService iItemService;
-	
-	
-	
 	
 	@GetMapping("get/allItems")
 	//@Cacheable(value = "get/allItems")
@@ -49,28 +47,28 @@ public class InventoryController {
 		try {
 			list = iItemService.getAllItems();
 			resVo.setItemList(list);
-			if(list!=null&&list.size()>0){
+			if(list!=null && !list.isEmpty()){
 				resVo.setResponseText("Items found");
 				res = ResponseEntity.status(HttpStatus.FOUND).body(resVo);
 			}else{
 				resVo.setResponseText("No items found");
 				res = ResponseEntity.status(HttpStatus.NO_CONTENT).body(resVo);
 			}
-		} catch (Exception e) {
+		} catch (ItemException e) {
 			e.printStackTrace();
-			resVo.setResponseText("Exception occured");
+			resVo.setResponseText(AppConstantVO.EXCEPTION_OCURED);
 			res = ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(resVo);
 		}
 		return res;
 	}
 	
 	@PostMapping("/create")
-	public ResponseEntity<ItemResponseVO> createItem(@RequestBody Item item){
+	public ResponseEntity<ItemResponseVO> createItem(@RequestBody ItemVO itemVo){
 		ItemResponseVO resVo = new ItemResponseVO();
 		ResponseEntity<ItemResponseVO> res = null;
 		String status = "";
 		try {
-			status = iItemService.createItem(item);
+			status = iItemService.createItem(itemVo);
 			if(status.equalsIgnoreCase(AppConstantVO.OPERATION_SUCCESS)){
 				resVo.setResponseText("Item has been created");
 				res = ResponseEntity.status(HttpStatus.CREATED).body(resVo);
@@ -79,22 +77,21 @@ public class InventoryController {
 				resVo.setResponseText("Item already exist");
 				res = ResponseEntity.status(HttpStatus.EXPECTATION_FAILED).body(resVo);
 			}
-		} catch (Exception e) {
+		} catch (ItemException e) {
 			e.printStackTrace();
-			resVo.setResponseText("Exception occured");
+			resVo.setResponseText(AppConstantVO.EXCEPTION_OCURED);
 			res = ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(resVo);
 		}
 		return res;
 	}
 	
 	@PutMapping("/update")
-	//@CachePut(value = "users", key = "#item.id")
-	public ResponseEntity<ItemResponseVO> updateItem(@RequestBody Item item){
+	public ResponseEntity<ItemResponseVO> updateItem(@RequestBody ItemVO itemVo){
 		ItemResponseVO resVo = new ItemResponseVO();
 		ResponseEntity<ItemResponseVO> res = null;
 		String status = "";
 		try {
-			status = iItemService.updateItem(item);
+			status = iItemService.updateItem(itemVo);
 			if(status.equalsIgnoreCase(AppConstantVO.OPERATION_SUCCESS)){
 				resVo.setResponseText("Item has been updated");
 				res = ResponseEntity.status(HttpStatus.CREATED).body(resVo);
@@ -106,9 +103,9 @@ public class InventoryController {
 				resVo.setResponseText("Unable to update, see the log.");
 				res = ResponseEntity.status(HttpStatus.EXPECTATION_FAILED).body(resVo);
 			}
-		} catch (Exception e) {
+		} catch (ItemException e) {
 			e.printStackTrace();
-			resVo.setResponseText("Exception occured");
+			resVo.setResponseText(AppConstantVO.EXCEPTION_OCURED);
 			res = ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(resVo);
 		}
 		return res;
@@ -136,9 +133,9 @@ public class InventoryController {
 				resVo.setResponseText("Unable to delete, see the log.");
 				res = ResponseEntity.status(HttpStatus.EXPECTATION_FAILED).body(resVo);
 			}
-		} catch (Exception e) {
+		} catch (ItemException e) {
 			e.printStackTrace();
-			resVo.setResponseText("Exception occured");
+			resVo.setResponseText(AppConstantVO.EXCEPTION_OCURED);
 			res = ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(resVo);
 		}
 		return res;

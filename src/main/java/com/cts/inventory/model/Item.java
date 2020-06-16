@@ -1,13 +1,14 @@
 
 package com.cts.inventory.model;
 
-import javax.annotation.Generated;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import com.cts.inventory.vo.ItemVO;
 
 /**
  * @author Arindam.Chowdhury@cognizant.com
@@ -37,6 +38,14 @@ public class Item {
 		this.name = name;
 		this.isSold = isSold;
 	}
+	
+	public Item(ItemVO itemVO) {
+		this.id = itemVO.id;
+		this.name = itemVO.name;
+		this.isSold = itemVO.isSold;
+	}
+
+	
 	public Integer getId() {
 		return id;
 	}
