@@ -1,15 +1,12 @@
 /**
  *
  */
-package com.cts.inventory.repository;
-
-import java.util.List;
-
-import javax.transaction.Transactional;
+package com.cts.inventory.infrastructure.db.repo.item;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import com.cts.inventory.exception.ItemException;
 import com.cts.inventory.model.Item;
 
 /**
@@ -19,10 +16,6 @@ import com.cts.inventory.model.Item;
 @Repository
 public interface IItemRepository extends JpaRepository<Item, Integer>{
 	
-	@Transactional
-	public List<Item> findAll();
-	
-	//@Query("SELECT f FROM Foo f WHERE LOWER(f.name) = LOWER(:name)")
-	public Item findByNameIgnoreCase(String name);
+	public Item findByNameIgnoreCase(String name) throws ItemException;
 
 }

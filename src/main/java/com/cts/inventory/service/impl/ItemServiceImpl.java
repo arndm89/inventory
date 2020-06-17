@@ -7,8 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.cts.inventory.exception.ItemException;
+import com.cts.inventory.infrastructure.db.repo.item.IItemRepository;
 import com.cts.inventory.model.Item;
-import com.cts.inventory.repository.IItemRepository;
 import com.cts.inventory.service.IItemService;
 import com.cts.inventory.vo.AppConstantVO;
 import com.cts.inventory.vo.ItemVO;

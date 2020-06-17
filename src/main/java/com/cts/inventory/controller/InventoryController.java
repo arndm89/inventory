@@ -37,7 +37,6 @@ public class InventoryController {
 	@Autowired IItemService iItemService;
 	
 	@GetMapping("get/allItems")
-	//@Cacheable(value = "get/allItems")
 	public ResponseEntity<ItemResponseVO> getAllItems(){
 		List<Item> list = null;
 		
@@ -77,7 +76,8 @@ public class InventoryController {
 				resVo.setResponseText("Item already exist");
 				res = ResponseEntity.status(HttpStatus.EXPECTATION_FAILED).body(resVo);
 			}else{
-				res = ResponseEntity.status(HttpStatus.NO_CONTENT).body(resVo);
+				resVo.setResponseText("Unable to create, see the log.");
+				res = ResponseEntity.status(HttpStatus.EXPECTATION_FAILED).body(resVo);
 			}
 		} catch (ItemException e) {
 			e.printStackTrace();
@@ -112,8 +112,6 @@ public class InventoryController {
 		}
 		return res;
 	}
-	
-	
 	
 	@DeleteMapping("/delete/{id}")
 	public ResponseEntity<ItemResponseVO> deleteItem(@PathVariable Integer id){
