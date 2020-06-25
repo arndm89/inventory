@@ -3,12 +3,12 @@ package com.cts.inventory.service.impl;
 import java.util.List;
 import java.util.Optional;
 
+import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.cts.inventory.controller.InventoryController;
 import com.cts.inventory.exception.ItemException;
 import com.cts.inventory.infrastructure.db.repo.item.IItemRepository;
 import com.cts.inventory.model.Item;
@@ -20,7 +20,7 @@ import com.cts.inventory.vo.ItemVO;
 @Service
 public class ItemServiceImpl implements IItemService{
 	
-	private static final Logger logger = LogManager.getLogger(InventoryController.class);
+	private static final Logger logger = LogManager.getLogger(ItemServiceImpl.class);
 	
 	@Autowired IItemRepository iItemRepository;
 
@@ -31,7 +31,7 @@ public class ItemServiceImpl implements IItemService{
 		try{
 			list = iItemRepository.findAll();
 		}catch(Exception e){
-			logger.info("ItemServiceImpl.getAllItems - EXCEPTION :: "+e.getMessage());
+			logger.log(Level.ERROR, "ItemServiceImpl.getAllItems EXCEPTION :: {0}.", e.getMessage());
 			throw new ItemException(e.getMessage(), e);
 		}
 		logger.info("ItemServiceImpl.getAllItems - ended");
@@ -51,7 +51,7 @@ public class ItemServiceImpl implements IItemService{
 				status = AppConstantVO.DUPLICATE_ENTRY;
 			}
 		}catch(Exception e){
-			logger.info("ItemServiceImpl.createItem - EXCEPTION :: "+e.getMessage());
+			logger.log(Level.ERROR, "ItemServiceImpl.createItem EXCEPTION :: {0}.", e.getMessage());
 			throw new ItemException(e.getMessage(), e);
 		}
 		logger.info("ItemServiceImpl.createItem - ended");
@@ -71,7 +71,7 @@ public class ItemServiceImpl implements IItemService{
 				status = AppConstantVO.ENTRY_NOT_FOUND;
 			}
 		}catch(Exception e){
-			logger.info("ItemServiceImpl.deleteItem - EXCEPTION :: "+e.getMessage());
+			logger.log(Level.ERROR, "ItemServiceImpl.deleteItem EXCEPTION :: {0}.", e.getMessage());
 			throw new ItemException(e.getMessage(), e);
 		}
 		logger.info("ItemServiceImpl.deleteItem - ended");

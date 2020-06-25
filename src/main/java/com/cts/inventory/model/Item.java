@@ -73,8 +73,4 @@ public class Item implements Serializable{
 		this.isSold = isSold;
 	}
 
-	@Override
-	public String toString() {
-		return "Item [id=" + id + ", name=" + name + ", isSold=" + isSold + "]";
-	}
 }
