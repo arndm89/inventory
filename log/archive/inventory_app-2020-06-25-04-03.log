@@ -1,0 +1,4 @@
+2020-Jun-25 16:02:18 PM [main] INFO  com.cts.inventory.InventoryApplication - Started InventoryApplication in 30.145 seconds (JVM running for 32.302)
+2020-Jun-25 16:02:37 PM [http-nio-8080-exec-9] INFO  com.cts.inventory.controller.InventoryController - InventoryController.getAllItems - started
+2020-Jun-25 16:02:40 PM [http-nio-8080-exec-9] INFO  com.cts.inventory.controller.InventoryController - InventoryController.getAllItems - ended
+2020-Jun-25 16:03:58 PM [http-nio-8080-exec-5] INFO  com.cts.inventory.controller.InventoryController - InventoryController.getAllItems - started

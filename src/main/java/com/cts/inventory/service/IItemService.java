@@ -4,8 +4,6 @@
 package com.cts.inventory.service;
 
 import java.util.List;
-import java.util.Optional;
-
 import com.cts.inventory.exception.ItemException;
 import com.cts.inventory.model.Item;
 import com.cts.inventory.vo.ItemVO;

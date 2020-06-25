@@ -4,7 +4,6 @@ package com.cts.inventory.service;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
-import java.sql.SQLException;
 import java.util.Collections;
 import java.util.List;
 
@@ -20,7 +19,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 import com.cts.inventory.exception.ItemException;
 import com.cts.inventory.infrastructure.db.repo.item.IItemRepository;
 import com.cts.inventory.model.Item;
-import com.cts.inventory.service.IItemService;
 import com.cts.inventory.vo.AppConstantVO;
 import com.cts.inventory.vo.ItemVO;
 
@@ -42,7 +40,7 @@ public class InventoryApplicationServiceTests {
     Item item = new Item(99, "Test-Mock-Obj", false);
 	
     @Before
-    public void setUp() throws SQLException {
+    public void setUp() {
     	
     	List<Item> itemList = Collections.singletonList(item);
     	 
@@ -59,27 +57,25 @@ public class InventoryApplicationServiceTests {
     
     
     @Test
-    public void getAllItemsTest() throws Exception {
+    public void getAllItemsTest() throws ItemException {
     	List<Item> list = iItemService.getAllItems();
     	assertNotNull(list);
     }
     
     @Test
-    public void createItemTest() throws Exception {
+    public void createItemTest() throws ItemException {
     	
     	String result = iItemService.createItem(itemVo);
     	assertEquals(AppConstantVO.OPERATION_SUCCESS, result);
     }
     @Test
-    public void updateItemItem() throws Exception{
-    	
+    public void updateItemItem() throws ItemException{
     	String result = iItemService.updateItem(itemVo);
-    	
     	assertEquals(AppConstantVO.OPERATION_SUCCESS, result);
     }
     
     @Test
-    public void deleteItemTest() throws Exception {
+    public void deleteItemTest() throws ItemException {
     	
     	String result = iItemService.deleteItem(1); // not available
     	assertEquals(AppConstantVO.OPERATION_SUCCESS, result);

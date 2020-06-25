@@ -3,9 +3,12 @@ package com.cts.inventory.service.impl;
 import java.util.List;
 import java.util.Optional;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.cts.inventory.controller.InventoryController;
 import com.cts.inventory.exception.ItemException;
 import com.cts.inventory.infrastructure.db.repo.item.IItemRepository;
 import com.cts.inventory.model.Item;
@@ -17,23 +20,27 @@ import com.cts.inventory.vo.ItemVO;
 @Service
 public class ItemServiceImpl implements IItemService{
 	
+	private static final Logger logger = LogManager.getLogger(InventoryController.class);
+	
 	@Autowired IItemRepository iItemRepository;
 
 	@Override
-	
 	public List<Item> getAllItems() throws ItemException {
+		logger.info("ItemServiceImpl.getAllItems - started");
 		List<Item> list = null;
 		try{
 			list = iItemRepository.findAll();
 		}catch(Exception e){
+			logger.info("ItemServiceImpl.getAllItems - EXCEPTION :: "+e.getMessage());
 			throw new ItemException(e.getMessage(), e);
 		}
+		logger.info("ItemServiceImpl.getAllItems - ended");
 		return list;
 	}
 
 	@Override
 	public String createItem(ItemVO itemVo) throws ItemException {
-		
+		logger.info("ItemServiceImpl.createItem - started");
 		String status = "";
 		try{
 			Item obj = iItemRepository.findByNameIgnoreCase(itemVo.name);
@@ -44,13 +51,16 @@ public class ItemServiceImpl implements IItemService{
 				status = AppConstantVO.DUPLICATE_ENTRY;
 			}
 		}catch(Exception e){
+			logger.info("ItemServiceImpl.createItem - EXCEPTION :: "+e.getMessage());
 			throw new ItemException(e.getMessage(), e);
 		}
+		logger.info("ItemServiceImpl.createItem - ended");
 		return status;
 	}
 
 	@Override
 	public String deleteItem(Integer id) throws ItemException {
+		logger.info("ItemServiceImpl.deleteItem - started");
 		String status = "";
 		try{
 			Optional<Item> obj = iItemRepository.findById(id);
@@ -61,15 +71,17 @@ public class ItemServiceImpl implements IItemService{
 				status = AppConstantVO.ENTRY_NOT_FOUND;
 			}
 		}catch(Exception e){
+			logger.info("ItemServiceImpl.deleteItem - EXCEPTION :: "+e.getMessage());
 			throw new ItemException(e.getMessage(), e);
 		}
+		logger.info("ItemServiceImpl.deleteItem - ended");
 		return status;
 	}
 	//@Transactional
 	@Override
 	public String updateItem(ItemVO itemVo) throws ItemException {
+		logger.info("ItemServiceImpl.deleteItem - started");
 		String status = "";
-		
 		Optional<Item> obj = iItemRepository.findById(itemVo.id);
 		if(obj.isPresent()){
 			
@@ -82,6 +94,7 @@ public class ItemServiceImpl implements IItemService{
 		}else{
 			status = AppConstantVO.ENTRY_NOT_FOUND;
 		}
+		logger.info("ItemServiceImpl.deleteItem - ended");
 		return status;
 	}
 	

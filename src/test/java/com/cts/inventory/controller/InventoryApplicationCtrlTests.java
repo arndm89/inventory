@@ -8,7 +8,6 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-import java.sql.SQLException;
 import java.util.Collections;
 import java.util.List;
 
@@ -26,7 +25,6 @@ import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
-import org.springframework.test.web.servlet.ResultMatcher;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
@@ -37,6 +35,7 @@ import com.cts.inventory.vo.AppConstantVO;
 import com.cts.inventory.vo.ItemVO;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+@SuppressWarnings("deprecation")
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class InventoryApplicationCtrlTests {
@@ -56,7 +55,7 @@ public class InventoryApplicationCtrlTests {
     Item item = new Item(99, "Test-Mock-Obj", false);
 	
     @Before
-    public void setUp() throws SQLException {
+    public void setUp() {
     	
     	mockMvc = MockMvcBuilders.webAppContextSetup(context).build();
     	
@@ -73,15 +72,14 @@ public class InventoryApplicationCtrlTests {
 		}
     }
     
-    
-    @Test
+	@Test
     public void testGetAllItemsCtrl() throws Exception {
 	    String jsonRequest = objectMapper.writeValueAsString(new Item());
-	    MvcResult result = (MvcResult) mockMvc
+	    MvcResult result = mockMvc
 	    		.perform(get("/item/get/allItems")
 	    		.content(jsonRequest)
 	    		.content(MediaType.APPLICATION_JSON_VALUE))
-	    		.andExpect((ResultMatcher) status().is(302)).andReturn();
+	    		.andExpect(status().is(200)).andReturn();
 	    
 	    String resultContent = result.getResponse().getContentAsString();
 	    Assert.assertTrue(resultContent, true);
@@ -90,12 +88,12 @@ public class InventoryApplicationCtrlTests {
     @Test
     public void testCreateItemCtrl() throws Exception {
 	    String jsonRequest = objectMapper.writeValueAsString(new ItemVO(null, "New_Test_item", false));
-	    MvcResult result = (MvcResult) mockMvc
+	    MvcResult result = mockMvc
 	    		.perform(post("/item/create")
 	    		.content(jsonRequest)
 	    		.accept(MediaType.APPLICATION_JSON)
 	    		.contentType(MediaType.APPLICATION_JSON))
-	    		.andExpect((ResultMatcher) status().is(201)).andReturn();
+	    		.andExpect(status().is(201)).andReturn();
 	    
 	    String resultContent = result.getResponse().getContentAsString();
 	    Assert.assertTrue(resultContent, true);
@@ -105,12 +103,12 @@ public class InventoryApplicationCtrlTests {
     @Test
     public void testUpdateItemCtrl() throws Exception {
 	    String jsonRequest = objectMapper.writeValueAsString(itemVo);
-	    MvcResult result = (MvcResult) mockMvc
+	    MvcResult result = mockMvc
 	    		.perform(put("/item/update")
 	    		.content(jsonRequest)
 	    		.accept(MediaType.APPLICATION_JSON)
 	    		.contentType(MediaType.APPLICATION_JSON))
-	    		.andExpect((ResultMatcher) status().is(201)).andReturn();
+	    		.andExpect(status().is(201)).andReturn();
 	    
 	    String resultContent = result.getResponse().getContentAsString();
 	    Assert.assertTrue(resultContent, true);
@@ -118,13 +116,12 @@ public class InventoryApplicationCtrlTests {
     
     @Test
     public void testDeleteItemCtrl() throws Exception {
-	    //String jsonRequest = objectMapper.writeValueAsString(itemVo);
-	    MvcResult result = (MvcResult) mockMvc
+	    MvcResult result = mockMvc
 	    		.perform(delete("/item/delete/1")
 	    		//.content(jsonRequest)
 	    		.accept(MediaType.APPLICATION_JSON)
 	    		.contentType(MediaType.APPLICATION_JSON))
-	    		.andExpect((ResultMatcher) status().is(200)).andReturn();
+	    		.andExpect(status().is(200)).andReturn();
 	    
 	    String resultContent = result.getResponse().getContentAsString();
 	    Assert.assertTrue(resultContent, true);

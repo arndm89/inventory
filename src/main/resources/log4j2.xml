@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="DEBUG">
+    <Appenders>
+    
+        <Console name="LogToConsole" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+        </Console>
+        
+        <RollingFile name="LogToRollingFile" fileName="log/inventory_app.log"
+                    filePattern="log/archive/inventory_app-%d{yyyy-MM-dd-hh-mm}.log">
+	        <PatternLayout>
+	            <Pattern>%d{yyyy-MMM-dd HH:mm:ss a} [%t] %-5level %logger{36} - %msg%n</Pattern>
+	        </PatternLayout>
+	        <Policies>
+	            <TimeBasedTriggeringPolicy interval="2" modulate="true" />
+	            <SizeBasedTriggeringPolicy size="500 KB"/>
+	        </Policies>
+	        <DefaultRolloverStrategy max="20" />
+	    </RollingFile>
+	    
+    </Appenders>
+    <Loggers>
+        <Logger name="com.cts.inventory" level="info" additivity="false">
+            <AppenderRef ref="LogToRollingFile"/>
+            <AppenderRef ref="LogToConsole"/>
+        </Logger>
+        <Logger name="org.springframework.boot" level="error" additivity="false">
+            <AppenderRef ref="LogToConsole"/>
+        </Logger>
+        <Root level="error">
+            <AppenderRef ref="LogToRollingFile"/>
+            <AppenderRef ref="LogToConsole"/>
+        </Root>
+    </Loggers>
+</Configuration>

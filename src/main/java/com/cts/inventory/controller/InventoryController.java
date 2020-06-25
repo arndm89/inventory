@@ -5,12 +5,12 @@ package com.cts.inventory.controller;
 
 import java.util.List;
 
-import javax.annotation.security.RolesAllowed;
-
+import org.apache.logging.log4j.Level;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -37,23 +37,18 @@ import com.cts.inventory.vo.ItemVO;
 @RequestMapping("/item")
 public class InventoryController {
 	
-	//private static final Logger logger = LoggerFactory.getLogger(InventoryController.class);
-
+	private static final Logger logger = LogManager.getLogger(InventoryController.class);
 	
 	@Autowired IItemService iItemService;
 	
 	//@Cacheable(value="item")
-	//@PreAuthorize("hasRole('ROLE_USER')")
 	@GetMapping("get/allItems")
 	public ResponseEntity<ItemResponseVO> getAllItems(){
-		
-		//logger.debug("InventoryController.getAllItems - started");
+		logger.info("InventoryController.getAllItems - started");
 		
 		List<Item> list = null;
-		
 		ItemResponseVO resVo = new ItemResponseVO();
 		ResponseEntity<ItemResponseVO> res = null;
-		
 		try {
 			list = iItemService.getAllItems();
 			resVo.setItemList(list);
@@ -65,17 +60,16 @@ public class InventoryController {
 				res = ResponseEntity.status(HttpStatus.NO_CONTENT).body(resVo);
 			}
 		} catch (ItemException e) {
-			//e.printStackTrace();
-			//logger.debug("InventoryController.getAllItems EXCEPTION :: "+e.getMessage());
+			logger.log(Level.ERROR, "InventoryController.getAllItems EXCEPTION :: {0}.", e.getMessage());
 			resVo.setResponseText(AppConstantVO.EXCEPTION_OCURED);
 			res = ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(resVo);
 		}
-		//logger.debug("InventoryController.getAllItems - ended");
+		logger.info("InventoryController.getAllItems - ended");
 		return res;
 	}
 	@PostMapping(path="/create")
 	public ResponseEntity<ItemResponseVO> createItem(@RequestBody ItemVO itemVo){
-		//logger.debug("InventoryController.createItem - started");
+		logger.info("InventoryController.createItem - started");
 		ItemResponseVO resVo = new ItemResponseVO();
 		ResponseEntity<ItemResponseVO> resp = null;
 		String status = "";
@@ -93,17 +87,17 @@ public class InventoryController {
 				resp = ResponseEntity.status(HttpStatus.EXPECTATION_FAILED).body(resVo);
 			}
 		} catch (ItemException e) {
-			//logger.debug("InventoryController.createItem EXCEPTION :: "+e.getMessage());
+			logger.log(Level.ERROR, "InventoryController.createItem EXCEPTION :: {0}.", e.getMessage());
 			resVo.setResponseText(AppConstantVO.EXCEPTION_OCURED);
 			resp = ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(resVo);
 		}
-		//logger.debug("InventoryController.createItem - ended");
+		logger.info("InventoryController.createItem - ended");
 		return resp;
 	}
 	
 	@PutMapping("/update")
 	public ResponseEntity<ItemResponseVO> updateItem(@RequestBody ItemVO itemVo){
-		//logger.debug("InventoryController.updateItem - started");
+		logger.info("InventoryController.updateItem - started");
 		ItemResponseVO resVo = new ItemResponseVO();
 		ResponseEntity<ItemResponseVO> res = null;
 		String status = "";
@@ -121,18 +115,17 @@ public class InventoryController {
 				res = ResponseEntity.status(HttpStatus.EXPECTATION_FAILED).body(resVo);
 			}
 		} catch (ItemException e) {
-			//e.printStackTrace();
-			//logger.debug("InventoryController.updateItem EXCEPTION :: "+e.getMessage());
+			logger.log(Level.ERROR, "InventoryController.updateItem EXCEPTION :: {0}.", e.getMessage());
 			resVo.setResponseText(AppConstantVO.EXCEPTION_OCURED);
 			res = ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(resVo);
 		}
-		//logger.debug("InventoryController.updateItem - ended");
+		logger.info("InventoryController.updateItem - ended");
 		return res;
 	}
 	
 	@DeleteMapping("/delete/{id}")
 	public ResponseEntity<ItemResponseVO> deleteItem(@PathVariable Integer id){
-		//logger.debug("InventoryController.deleteItem - started");
+		logger.info("InventoryController.deleteItem - started");
 		ItemResponseVO resVo = new ItemResponseVO();
 		ResponseEntity<ItemResponseVO> res = null;
 		String status = "";
@@ -151,12 +144,11 @@ public class InventoryController {
 				res = ResponseEntity.status(HttpStatus.EXPECTATION_FAILED).body(resVo);
 			}
 		} catch (ItemException e) {
-			//e.printStackTrace();
-			//logger.debug("InventoryController.deleteItem :: "+e.getMessage());
+			logger.log(Level.ERROR, "InventoryController.deleteItem EXCEPTION :: {0}.", e.getMessage());
 			resVo.setResponseText(AppConstantVO.EXCEPTION_OCURED);
 			res = ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(resVo);
 		}
-		//logger.debug("InventoryController.deleteItem - started");
+		logger.info("InventoryController.deleteItem - ended");
 		return res;
 	}
 	
