@@ -30,9 +30,6 @@ import com.cts.inventory.vo.ItemVO;
 public class InventoryApplicationServiceTests {
 	
 	
-	//@MockBean private InventoryController itemCtrlMock;
-
-	
     @Autowired IItemRepository iItemRepository;
     
     @Autowired IItemService iItemService;
@@ -47,16 +44,13 @@ public class InventoryApplicationServiceTests {
     @Before
     public void setUp() throws SQLException {
     	
-    	//mockMvc = MockMvcBuilders.standaloneSetup(inventoryController).build();
     	List<Item> itemList = Collections.singletonList(item);
     	 
         try {
-        	//Mockito.when(iItemRepoMock.findAll()).thenReturn(itemList);
         	Mockito.when(iItemServiceMock.getAllItems()).thenReturn(itemList);
         	Mockito.when(iItemServiceMock.deleteItem(1)).thenReturn(AppConstantVO.OPERATION_SUCCESS);
 			Mockito.when(iItemServiceMock.updateItem(itemVo)).thenReturn(AppConstantVO.OPERATION_SUCCESS);
 			Mockito.when(iItemServiceMock.createItem(itemVo)).thenReturn(AppConstantVO.OPERATION_SUCCESS);
-			
 			
 		} catch (ItemException e) {
 			e.printStackTrace();
@@ -71,34 +65,23 @@ public class InventoryApplicationServiceTests {
     }
     
     @Test
-    /*@Transactional
-    @Rollback(true)*/
     public void createItemTest() throws Exception {
     	
     	String result = iItemService.createItem(itemVo);
     	assertEquals(AppConstantVO.OPERATION_SUCCESS, result);
     }
     @Test
-    /*@Transactional
-    @Rollback(true)*/
     public void updateItemItem() throws Exception{
     	
-    	/*ItemVO temp = new ItemVO();
-    	temp.id = 1;
-    	temp.name = "Gold-updated";*/    	
     	String result = iItemService.updateItem(itemVo);
     	
     	assertEquals(AppConstantVO.OPERATION_SUCCESS, result);
     }
     
     @Test
-   /* @Transactional
-    @Rollback(true)*/
     public void deleteItemTest() throws Exception {
     	
     	String result = iItemService.deleteItem(1); // not available
     	assertEquals(AppConstantVO.OPERATION_SUCCESS, result);
     }
-
 }
-

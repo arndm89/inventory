@@ -39,20 +39,10 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-//@WebMvcTest(InventoryController.class)
 public class InventoryApplicationCtrlTests {
 	
 	
-	//@MockBean private InventoryController itemCtrlMock;
-
-	
-    //@Autowired IItemRepository iItemRepository;
-    
-    //@Autowired IItemService iItemService;
-    
-    //@MockBean IItemRepository iItemRepoMock;
     @MockBean IItemService iItemServiceMock;
-    
     
     @InjectMocks private InventoryController inventoryController;
 
@@ -75,9 +65,6 @@ public class InventoryApplicationCtrlTests {
         try {
         	Mockito.when(iItemServiceMock.getAllItems()).thenReturn(itemList);
         	Mockito.when(iItemServiceMock.deleteItem(1)).thenReturn(AppConstantVO.OPERATION_SUCCESS);
-			//Mockito.when(iItemServiceMock.updateItem(itemVo)).thenReturn(AppConstantVO.OPERATION_SUCCESS);
-			//Mockito.when(iItemServiceMock.createItem(itemVo)).thenReturn(AppConstantVO.OPERATION_SUCCESS);
-			
 			Mockito.when(iItemServiceMock.createItem(any(ItemVO.class))).thenReturn(AppConstantVO.OPERATION_SUCCESS);
 			Mockito.when(iItemServiceMock.updateItem(any(ItemVO.class))).thenReturn(AppConstantVO.OPERATION_SUCCESS);
 			

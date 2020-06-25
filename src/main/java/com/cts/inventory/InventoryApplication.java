@@ -2,9 +2,11 @@ package com.cts.inventory;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
-//@EnableCaching
 @SpringBootApplication
+@EnableEurekaClient
+//@EnableCaching
 public class InventoryApplication {
 
 	public static void main(String[] args) {

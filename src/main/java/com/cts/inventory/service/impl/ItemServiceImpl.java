@@ -13,12 +13,14 @@ import com.cts.inventory.service.IItemService;
 import com.cts.inventory.vo.AppConstantVO;
 import com.cts.inventory.vo.ItemVO;
 
+
 @Service
 public class ItemServiceImpl implements IItemService{
 	
 	@Autowired IItemRepository iItemRepository;
 
 	@Override
+	
 	public List<Item> getAllItems() throws ItemException {
 		List<Item> list = null;
 		try{

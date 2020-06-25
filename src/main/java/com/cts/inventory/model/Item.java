@@ -1,6 +1,8 @@
 
 package com.cts.inventory.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -15,7 +17,13 @@ import com.cts.inventory.vo.ItemVO;
  */
 @Entity
 @Table(name="item")
-public class Item {
+//@RedisHash("Item")
+public class Item implements Serializable{
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 340973743814995349L;
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
