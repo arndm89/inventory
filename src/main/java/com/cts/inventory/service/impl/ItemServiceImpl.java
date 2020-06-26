@@ -37,6 +37,15 @@ public class ItemServiceImpl implements IItemService{
 		logger.info("ItemServiceImpl.getAllItems - ended");
 		return list;
 	}
+	
+	@Override
+	public Item getItemById(Integer id) throws ItemException {
+		logger.info("ItemServiceImpl.getItemById - started");
+		Optional<Item> item = iItemRepository.findById(id);
+		logger.info("ItemServiceImpl.getItemById - ended");
+		return item.isPresent() ? item.get() : null;
+	}
+	
 
 	@Override
 	public String createItem(ItemVO itemVo) throws ItemException {
@@ -97,7 +106,5 @@ public class ItemServiceImpl implements IItemService{
 		logger.info("ItemServiceImpl.deleteItem - ended");
 		return status;
 	}
-	
-	
 
 }

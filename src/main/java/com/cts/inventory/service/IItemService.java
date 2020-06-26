@@ -4,6 +4,7 @@
 package com.cts.inventory.service;
 
 import java.util.List;
+
 import com.cts.inventory.exception.ItemException;
 import com.cts.inventory.model.Item;
 import com.cts.inventory.vo.ItemVO;
@@ -15,11 +16,15 @@ import com.cts.inventory.vo.ItemVO;
 public interface IItemService {
 	
 	public List<Item> getAllItems()throws ItemException;
+	
+	public Item getItemById(Integer id) throws ItemException;
 
 	public String createItem(ItemVO item)throws ItemException;
 
 	public String deleteItem(Integer id)throws ItemException;
 
 	public String updateItem(ItemVO item)throws ItemException;
+
+	
 
 }

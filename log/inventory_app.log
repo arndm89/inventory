@@ -1,0 +1,139 @@
+2020-Jun-26 14:16:23 PM [main] INFO  com.cts.inventory.controller.InventoryApplicationCtrlTests - Started InventoryApplicationCtrlTests in 35.638 seconds (JVM running for 41.588)
+2020-Jun-26 14:16:23 PM [main] ERROR com.cts.inventory.exception.ItemException - ItemException :: {0}.
+2020-Jun-26 14:16:23 PM [main] ERROR com.cts.inventory.exception.ItemException - REASON :: {0}.
+2020-Jun-26 14:16:23 PM [main] ERROR com.cts.inventory.exception.ItemException - ItemException :: {0}.
+2020-Jun-26 14:16:23 PM [main] ERROR com.cts.inventory.exception.ItemException - REASON :: {0}.
+2020-Jun-26 14:16:23 PM [main] INFO  com.cts.inventory.controller.InventoryController - InventoryController.deleteItem - started
+2020-Jun-26 14:16:23 PM [main] INFO  com.cts.inventory.controller.InventoryController - InventoryController.deleteItem - ended
+2020-Jun-26 14:16:24 PM [main] INFO  com.cts.inventory.controller.InventoryController - InventoryController.deleteItem - started
+2020-Jun-26 14:16:24 PM [main] INFO  com.cts.inventory.controller.InventoryController - InventoryController.deleteItem - ended
+2020-Jun-26 14:16:24 PM [main] INFO  com.cts.inventory.controller.InventoryController - InventoryController.deleteItem - started
+2020-Jun-26 14:16:24 PM [main] INFO  com.cts.inventory.controller.InventoryController - InventoryController.deleteItem - ended
+2020-Jun-26 14:16:24 PM [main] INFO  com.cts.inventory.controller.InventoryController - InventoryController.deleteItem - started
+2020-Jun-26 14:16:24 PM [main] ERROR com.cts.inventory.controller.InventoryController - InventoryController.deleteItem EXCEPTION :: {0}.
+2020-Jun-26 14:16:24 PM [main] INFO  com.cts.inventory.controller.InventoryController - InventoryController.deleteItem - ended
+2020-Jun-26 14:16:24 PM [main] ERROR com.cts.inventory.exception.ItemException - ItemException :: {0}.
+2020-Jun-26 14:16:24 PM [main] ERROR com.cts.inventory.exception.ItemException - REASON :: {0}.
+2020-Jun-26 14:16:24 PM [main] ERROR com.cts.inventory.exception.ItemException - ItemException :: {0}.
+2020-Jun-26 14:16:24 PM [main] ERROR com.cts.inventory.exception.ItemException - REASON :: {0}.
+2020-Jun-26 14:16:24 PM [main] INFO  com.cts.inventory.controller.InventoryController - InventoryController.getItemById - started
+2020-Jun-26 14:16:24 PM [main] INFO  com.cts.inventory.controller.InventoryController - InventoryController.getItemById - ended
+2020-Jun-26 14:16:24 PM [main] INFO  com.cts.inventory.controller.InventoryController - InventoryController.getItemById - started
+2020-Jun-26 14:16:24 PM [main] INFO  com.cts.inventory.controller.InventoryController - InventoryController.getItemById - ended
+2020-Jun-26 14:16:24 PM [main] INFO  com.cts.inventory.controller.InventoryController - InventoryController.getItemById - started
+2020-Jun-26 14:16:24 PM [main] ERROR com.cts.inventory.controller.InventoryController - InventoryController.getItemById EXCEPTION :: {0}.
+2020-Jun-26 14:16:24 PM [main] INFO  com.cts.inventory.controller.InventoryController - InventoryController.getItemById - ended
+2020-Jun-26 14:16:24 PM [main] ERROR com.cts.inventory.exception.ItemException - ItemException :: {0}.
+2020-Jun-26 14:16:24 PM [main] ERROR com.cts.inventory.exception.ItemException - REASON :: {0}.
+2020-Jun-26 14:16:24 PM [main] ERROR com.cts.inventory.exception.ItemException - ItemException :: {0}.
+2020-Jun-26 14:16:24 PM [main] ERROR com.cts.inventory.exception.ItemException - REASON :: {0}.
+2020-Jun-26 14:16:24 PM [main] INFO  com.cts.inventory.controller.InventoryController - InventoryController.getAllItems - started
+2020-Jun-26 14:16:24 PM [main] INFO  com.cts.inventory.controller.InventoryController - InventoryController.getAllItems - ended
+2020-Jun-26 14:16:24 PM [main] INFO  com.cts.inventory.controller.InventoryController - InventoryController.getAllItems - started
+2020-Jun-26 14:16:24 PM [main] INFO  com.cts.inventory.controller.InventoryController - InventoryController.getAllItems - ended
+2020-Jun-26 14:16:24 PM [main] ERROR com.cts.inventory.exception.ItemException - ItemException :: {0}.
+2020-Jun-26 14:16:24 PM [main] ERROR com.cts.inventory.exception.ItemException - REASON :: {0}.
+2020-Jun-26 14:16:24 PM [main] INFO  com.cts.inventory.controller.InventoryController - InventoryController.getAllItems - started
+2020-Jun-26 14:16:24 PM [main] ERROR com.cts.inventory.controller.InventoryController - InventoryController.getAllItems EXCEPTION :: {0}.
+2020-Jun-26 14:16:24 PM [main] INFO  com.cts.inventory.controller.InventoryController - InventoryController.getAllItems - ended
+2020-Jun-26 14:16:24 PM [main] ERROR com.cts.inventory.exception.ItemException - ItemException :: {0}.
+2020-Jun-26 14:16:24 PM [main] ERROR com.cts.inventory.exception.ItemException - REASON :: {0}.
+2020-Jun-26 14:16:24 PM [main] ERROR com.cts.inventory.exception.ItemException - ItemException :: {0}.
+2020-Jun-26 14:16:24 PM [main] ERROR com.cts.inventory.exception.ItemException - REASON :: {0}.
+2020-Jun-26 14:16:24 PM [main] INFO  com.cts.inventory.controller.InventoryController - InventoryController.updateItem - started
+2020-Jun-26 14:16:24 PM [main] INFO  com.cts.inventory.controller.InventoryController - InventoryController.updateItem - ended
+2020-Jun-26 14:16:24 PM [main] INFO  com.cts.inventory.controller.InventoryController - InventoryController.updateItem - started
+2020-Jun-26 14:16:24 PM [main] INFO  com.cts.inventory.controller.InventoryController - InventoryController.updateItem - ended
+2020-Jun-26 14:16:24 PM [main] INFO  com.cts.inventory.controller.InventoryController - InventoryController.updateItem - started
+2020-Jun-26 14:16:24 PM [main] INFO  com.cts.inventory.controller.InventoryController - InventoryController.updateItem - ended
+2020-Jun-26 14:16:24 PM [main] ERROR com.cts.inventory.exception.ItemException - ItemException :: {0}.
+2020-Jun-26 14:16:24 PM [main] ERROR com.cts.inventory.exception.ItemException - REASON :: {0}.
+2020-Jun-26 14:16:24 PM [main] INFO  com.cts.inventory.controller.InventoryController - InventoryController.updateItem - started
+2020-Jun-26 14:16:24 PM [main] ERROR com.cts.inventory.controller.InventoryController - InventoryController.updateItem EXCEPTION :: {0}.
+2020-Jun-26 14:16:24 PM [main] INFO  com.cts.inventory.controller.InventoryController - InventoryController.updateItem - ended
+2020-Jun-26 14:16:24 PM [main] ERROR com.cts.inventory.exception.ItemException - ItemException :: {0}.
+2020-Jun-26 14:16:24 PM [main] ERROR com.cts.inventory.exception.ItemException - REASON :: {0}.
+2020-Jun-26 14:16:24 PM [main] ERROR com.cts.inventory.exception.ItemException - ItemException :: {0}.
+2020-Jun-26 14:16:24 PM [main] ERROR com.cts.inventory.exception.ItemException - REASON :: {0}.
+2020-Jun-26 14:16:24 PM [main] INFO  com.cts.inventory.controller.InventoryController - InventoryController.createItem - started
+2020-Jun-26 14:16:24 PM [main] INFO  com.cts.inventory.controller.InventoryController - InventoryController.createItem - ended
+2020-Jun-26 14:16:24 PM [main] INFO  com.cts.inventory.controller.InventoryController - InventoryController.createItem - started
+2020-Jun-26 14:16:24 PM [main] INFO  com.cts.inventory.controller.InventoryController - InventoryController.createItem - ended
+2020-Jun-26 14:16:24 PM [main] INFO  com.cts.inventory.controller.InventoryController - InventoryController.createItem - started
+2020-Jun-26 14:16:24 PM [main] INFO  com.cts.inventory.controller.InventoryController - InventoryController.createItem - ended
+2020-Jun-26 14:16:24 PM [main] ERROR com.cts.inventory.exception.ItemException - ItemException :: {0}.
+2020-Jun-26 14:16:24 PM [main] ERROR com.cts.inventory.exception.ItemException - REASON :: {0}.
+2020-Jun-26 14:16:24 PM [main] INFO  com.cts.inventory.controller.InventoryController - InventoryController.createItem - started
+2020-Jun-26 14:16:24 PM [main] ERROR com.cts.inventory.controller.InventoryController - InventoryController.createItem EXCEPTION :: {0}.
+2020-Jun-26 14:16:24 PM [main] INFO  com.cts.inventory.controller.InventoryController - InventoryController.createItem - ended
+2020-Jun-26 14:16:25 PM [main] INFO  com.cts.inventory.service.InventoryApplicationServiceTests - No active profile set, falling back to default profiles: default
+2020-Jun-26 14:16:40 PM [main] INFO  com.cts.inventory.service.InventoryApplicationServiceTests - Started InventoryApplicationServiceTests in 16.241 seconds (JVM running for 58.879)
+2020-Jun-26 14:16:41 PM [main] INFO  com.cts.inventory.repository.InventoryApplicationRepositoryTests - No active profile set, falling back to default profiles: default
+2020-Jun-26 14:16:52 PM [main] INFO  com.cts.inventory.repository.InventoryApplicationRepositoryTests - Started InventoryApplicationRepositoryTests in 11.917 seconds (JVM running for 70.967)
+2020-Jun-26 14:16:52 PM [main] ERROR com.cts.inventory.exception.ItemException - ItemException :: {0}.
+2020-Jun-26 14:16:52 PM [main] ERROR com.cts.inventory.exception.ItemException - REASON :: {0}.
+2020-Jun-26 14:16:52 PM [main] ERROR com.cts.inventory.exception.ItemException - ItemException :: {0}.
+2020-Jun-26 14:16:52 PM [main] ERROR com.cts.inventory.exception.ItemException - REASON :: {0}.
+2020-Jun-26 14:16:52 PM [main] INFO  com.cts.inventory.controller.InventoryController - InventoryController.deleteItem - started
+2020-Jun-26 14:16:52 PM [main] INFO  com.cts.inventory.controller.InventoryController - InventoryController.deleteItem - ended
+2020-Jun-26 14:16:52 PM [main] INFO  com.cts.inventory.controller.InventoryController - InventoryController.deleteItem - started
+2020-Jun-26 14:16:52 PM [main] INFO  com.cts.inventory.controller.InventoryController - InventoryController.deleteItem - ended
+2020-Jun-26 14:16:52 PM [main] INFO  com.cts.inventory.controller.InventoryController - InventoryController.deleteItem - started
+2020-Jun-26 14:16:52 PM [main] INFO  com.cts.inventory.controller.InventoryController - InventoryController.deleteItem - ended
+2020-Jun-26 14:16:52 PM [main] INFO  com.cts.inventory.controller.InventoryController - InventoryController.deleteItem - started
+2020-Jun-26 14:16:52 PM [main] ERROR com.cts.inventory.controller.InventoryController - InventoryController.deleteItem EXCEPTION :: {0}.
+2020-Jun-26 14:16:52 PM [main] INFO  com.cts.inventory.controller.InventoryController - InventoryController.deleteItem - ended
+2020-Jun-26 14:16:52 PM [main] ERROR com.cts.inventory.exception.ItemException - ItemException :: {0}.
+2020-Jun-26 14:16:52 PM [main] ERROR com.cts.inventory.exception.ItemException - REASON :: {0}.
+2020-Jun-26 14:16:52 PM [main] ERROR com.cts.inventory.exception.ItemException - ItemException :: {0}.
+2020-Jun-26 14:16:52 PM [main] ERROR com.cts.inventory.exception.ItemException - REASON :: {0}.
+2020-Jun-26 14:16:52 PM [main] INFO  com.cts.inventory.controller.InventoryController - InventoryController.getItemById - started
+2020-Jun-26 14:16:52 PM [main] INFO  com.cts.inventory.controller.InventoryController - InventoryController.getItemById - ended
+2020-Jun-26 14:16:52 PM [main] INFO  com.cts.inventory.controller.InventoryController - InventoryController.getItemById - started
+2020-Jun-26 14:16:52 PM [main] INFO  com.cts.inventory.controller.InventoryController - InventoryController.getItemById - ended
+2020-Jun-26 14:16:53 PM [main] INFO  com.cts.inventory.controller.InventoryController - InventoryController.getItemById - started
+2020-Jun-26 14:16:53 PM [main] ERROR com.cts.inventory.controller.InventoryController - InventoryController.getItemById EXCEPTION :: {0}.
+2020-Jun-26 14:16:53 PM [main] INFO  com.cts.inventory.controller.InventoryController - InventoryController.getItemById - ended
+2020-Jun-26 14:16:53 PM [main] ERROR com.cts.inventory.exception.ItemException - ItemException :: {0}.
+2020-Jun-26 14:16:53 PM [main] ERROR com.cts.inventory.exception.ItemException - REASON :: {0}.
+2020-Jun-26 14:16:53 PM [main] ERROR com.cts.inventory.exception.ItemException - ItemException :: {0}.
+2020-Jun-26 14:16:53 PM [main] ERROR com.cts.inventory.exception.ItemException - REASON :: {0}.
+2020-Jun-26 14:16:53 PM [main] INFO  com.cts.inventory.controller.InventoryController - InventoryController.getAllItems - started
+2020-Jun-26 14:16:53 PM [main] INFO  com.cts.inventory.controller.InventoryController - InventoryController.getAllItems - ended
+2020-Jun-26 14:16:53 PM [main] INFO  com.cts.inventory.controller.InventoryController - InventoryController.getAllItems - started
+2020-Jun-26 14:16:53 PM [main] INFO  com.cts.inventory.controller.InventoryController - InventoryController.getAllItems - ended
+2020-Jun-26 14:16:53 PM [main] ERROR com.cts.inventory.exception.ItemException - ItemException :: {0}.
+2020-Jun-26 14:16:53 PM [main] ERROR com.cts.inventory.exception.ItemException - REASON :: {0}.
+2020-Jun-26 14:16:53 PM [main] INFO  com.cts.inventory.controller.InventoryController - InventoryController.getAllItems - started
+2020-Jun-26 14:16:53 PM [main] ERROR com.cts.inventory.controller.InventoryController - InventoryController.getAllItems EXCEPTION :: {0}.
+2020-Jun-26 14:16:53 PM [main] INFO  com.cts.inventory.controller.InventoryController - InventoryController.getAllItems - ended
+2020-Jun-26 14:16:53 PM [main] ERROR com.cts.inventory.exception.ItemException - ItemException :: {0}.
+2020-Jun-26 14:16:53 PM [main] ERROR com.cts.inventory.exception.ItemException - REASON :: {0}.
+2020-Jun-26 14:16:53 PM [main] ERROR com.cts.inventory.exception.ItemException - ItemException :: {0}.
+2020-Jun-26 14:16:53 PM [main] ERROR com.cts.inventory.exception.ItemException - REASON :: {0}.
+2020-Jun-26 14:16:53 PM [main] INFO  com.cts.inventory.controller.InventoryController - InventoryController.updateItem - started
+2020-Jun-26 14:16:53 PM [main] INFO  com.cts.inventory.controller.InventoryController - InventoryController.updateItem - ended
+2020-Jun-26 14:16:53 PM [main] INFO  com.cts.inventory.controller.InventoryController - InventoryController.updateItem - started
+2020-Jun-26 14:16:53 PM [main] INFO  com.cts.inventory.controller.InventoryController - InventoryController.updateItem - ended
+2020-Jun-26 14:16:53 PM [main] INFO  com.cts.inventory.controller.InventoryController - InventoryController.updateItem - started
+2020-Jun-26 14:16:53 PM [main] INFO  com.cts.inventory.controller.InventoryController - InventoryController.updateItem - ended
+2020-Jun-26 14:16:53 PM [main] ERROR com.cts.inventory.exception.ItemException - ItemException :: {0}.
+2020-Jun-26 14:16:53 PM [main] ERROR com.cts.inventory.exception.ItemException - REASON :: {0}.
+2020-Jun-26 14:16:53 PM [main] INFO  com.cts.inventory.controller.InventoryController - InventoryController.updateItem - started
+2020-Jun-26 14:16:53 PM [main] ERROR com.cts.inventory.controller.InventoryController - InventoryController.updateItem EXCEPTION :: {0}.
+2020-Jun-26 14:16:53 PM [main] INFO  com.cts.inventory.controller.InventoryController - InventoryController.updateItem - ended
+2020-Jun-26 14:16:53 PM [main] ERROR com.cts.inventory.exception.ItemException - ItemException :: {0}.
+2020-Jun-26 14:16:53 PM [main] ERROR com.cts.inventory.exception.ItemException - REASON :: {0}.
+2020-Jun-26 14:16:53 PM [main] ERROR com.cts.inventory.exception.ItemException - ItemException :: {0}.
+2020-Jun-26 14:16:53 PM [main] ERROR com.cts.inventory.exception.ItemException - REASON :: {0}.
+2020-Jun-26 14:16:53 PM [main] INFO  com.cts.inventory.controller.InventoryController - InventoryController.createItem - started
+2020-Jun-26 14:16:53 PM [main] INFO  com.cts.inventory.controller.InventoryController - InventoryController.createItem - ended
+2020-Jun-26 14:16:53 PM [main] INFO  com.cts.inventory.controller.InventoryController - InventoryController.createItem - started
+2020-Jun-26 14:16:53 PM [main] INFO  com.cts.inventory.controller.InventoryController - InventoryController.createItem - ended
+2020-Jun-26 14:16:53 PM [main] INFO  com.cts.inventory.controller.InventoryController - InventoryController.createItem - started
+2020-Jun-26 14:16:53 PM [main] INFO  com.cts.inventory.controller.InventoryController - InventoryController.createItem - ended
+2020-Jun-26 14:16:53 PM [main] ERROR com.cts.inventory.exception.ItemException - ItemException :: {0}.
+2020-Jun-26 14:16:53 PM [main] ERROR com.cts.inventory.exception.ItemException - REASON :: {0}.
+2020-Jun-26 14:16:53 PM [main] INFO  com.cts.inventory.controller.InventoryController - InventoryController.createItem - started
+2020-Jun-26 14:16:53 PM [main] ERROR com.cts.inventory.controller.InventoryController - InventoryController.createItem EXCEPTION :: {0}.
+2020-Jun-26 14:16:53 PM [main] INFO  com.cts.inventory.controller.InventoryController - InventoryController.createItem - ended

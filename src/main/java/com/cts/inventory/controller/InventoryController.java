@@ -67,6 +67,31 @@ public class InventoryController {
 		logger.info("InventoryController.getAllItems - ended");
 		return res;
 	}
+	
+	@GetMapping("get/byId/{id}")
+	public ResponseEntity<ItemResponseVO> getItemById(@PathVariable Integer id){
+		logger.info("InventoryController.getItemById - started");
+		
+		ItemResponseVO resVo = new ItemResponseVO();
+		ResponseEntity<ItemResponseVO> res = null;
+		try {
+			Item item = iItemService.getItemById(id);
+			if(item != null){
+				resVo.setResponseText("Item found");
+				resVo.setItem(item);
+				res = ResponseEntity.status(HttpStatus.OK).body(resVo);
+			}else{
+				resVo.setResponseText("Not found");
+				res = ResponseEntity.status(HttpStatus.NO_CONTENT).body(resVo);
+			}
+		} catch (ItemException e) {
+			logger.log(Level.ERROR, "InventoryController.getItemById EXCEPTION :: {0}.", e.getMessage());
+			resVo.setResponseText(AppConstantVO.EXCEPTION_OCURED);
+			res = ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(resVo);
+		}
+		logger.info("InventoryController.getItemById - ended");
+		return res;
+	}
 	@PostMapping(path="/create")
 	public ResponseEntity<ItemResponseVO> createItem(@RequestBody ItemVO itemVo){
 		logger.info("InventoryController.createItem - started");

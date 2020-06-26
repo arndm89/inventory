@@ -10,17 +10,16 @@ import com.cts.inventory.model.Item;
  */
 public class ItemResponseVO {
 	
-	public int responseCode;
-	public String responseMsg;
-	public String responseText;
-	public List<Item> itemList;
+	int responseCode;
+	String responseMsg;
+	String responseText;
+	List<Item> itemList;
+	Item item;
 	
 	
 	public ItemResponseVO(){
 		super();
 	}
-	
-	
 	
 	public int getResponseCode() {
 		return responseCode;
@@ -47,5 +46,10 @@ public class ItemResponseVO {
 	public void setItemList(List<Item> itemList) {
 		this.itemList = itemList;
 	}
-	
+	public Item getItem() {
+		return item;
+	}
+	public void setItem(Item item) {
+		this.item = item;
+	}
 }

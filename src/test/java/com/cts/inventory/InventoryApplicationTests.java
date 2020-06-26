@@ -19,8 +19,5 @@ import com.cts.inventory.service.InventoryApplicationServiceTests;
 
 
 public class InventoryApplicationTests {
-	
-	
-
 }
 

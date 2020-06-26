@@ -38,7 +38,7 @@ public class InventoryApplicationServiceTests {
    
     ItemVO itemVo = new ItemVO(1, "Item_updated", false);
     Item item = new Item(99, "Test-Mock-Obj", false);
-	
+    
     @Before
     public void setUp() {
     	
@@ -46,6 +46,7 @@ public class InventoryApplicationServiceTests {
     	 
         try {
         	Mockito.when(iItemServiceMock.getAllItems()).thenReturn(itemList);
+        	Mockito.when(iItemServiceMock.getItemById(99)).thenReturn(item);
         	Mockito.when(iItemServiceMock.deleteItem(1)).thenReturn(AppConstantVO.OPERATION_SUCCESS);
 			Mockito.when(iItemServiceMock.updateItem(itemVo)).thenReturn(AppConstantVO.OPERATION_SUCCESS);
 			Mockito.when(iItemServiceMock.createItem(itemVo)).thenReturn(AppConstantVO.OPERATION_SUCCESS);
@@ -55,11 +56,16 @@ public class InventoryApplicationServiceTests {
 		}
     }
     
-    
     @Test
     public void getAllItemsTest() throws ItemException {
     	List<Item> list = iItemService.getAllItems();
     	assertNotNull(list);
+    	
+    }
+    @Test
+    public void getItemByIdTest() throws ItemException {
+    	Item op = iItemService.getItemById(99);
+    	assertNotNull(op);
     }
     
     @Test
@@ -67,13 +73,13 @@ public class InventoryApplicationServiceTests {
     	
     	String result = iItemService.createItem(itemVo);
     	assertEquals(AppConstantVO.OPERATION_SUCCESS, result);
+    	
     }
     @Test
     public void updateItemItem() throws ItemException{
     	String result = iItemService.updateItem(itemVo);
     	assertEquals(AppConstantVO.OPERATION_SUCCESS, result);
     }
-    
     @Test
     public void deleteItemTest() throws ItemException {
     	

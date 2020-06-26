@@ -3,8 +3,6 @@ package com.cts.inventory.repository;
 
 import static org.junit.Assert.assertNotNull;
 
-import java.sql.SQLException;
-
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -24,7 +22,7 @@ public class InventoryApplicationRepositoryTests {
     @MockBean IItemRepository iItemRepoMock;
    
     @Before
-    public void setUp() throws SQLException {
+    public void setUp() {
     	Item item = new Item(1, "Iron", false);
         try {
         	Mockito.when(iItemRepoMock.findByNameIgnoreCase("Iron")).thenReturn(item);
@@ -33,7 +31,7 @@ public class InventoryApplicationRepositoryTests {
 		}
     }
     @Test
-    public void createItemTest() throws Exception {
+    public void createItemTest() throws ItemException {
     	Item result = iItemRepoMock.findByNameIgnoreCase("Iron");
     	assertNotNull(result);
     }
