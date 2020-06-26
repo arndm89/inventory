@@ -1,9 +1,0 @@
-2020-Jun-25 17:26:21 PM [main] INFO  com.cts.inventory.controller.InventoryApplicationCtrlTests - Started InventoryApplicationCtrlTests in 33.583 seconds (JVM running for 40.811)
-2020-Jun-25 17:26:21 PM [main] INFO  com.cts.inventory.controller.InventoryController - InventoryController.deleteItem - started
-2020-Jun-25 17:26:29 PM [main] INFO  com.cts.inventory.controller.InventoryController - InventoryController.deleteItem - ended
-2020-Jun-25 17:26:29 PM [main] INFO  com.cts.inventory.controller.InventoryController - InventoryController.getAllItems - started
-2020-Jun-25 17:26:29 PM [main] INFO  com.cts.inventory.controller.InventoryController - InventoryController.getAllItems - ended
-2020-Jun-25 17:26:30 PM [main] INFO  com.cts.inventory.controller.InventoryController - InventoryController.updateItem - started
-2020-Jun-25 17:26:30 PM [main] INFO  com.cts.inventory.controller.InventoryController - InventoryController.updateItem - ended
-2020-Jun-25 17:26:30 PM [main] INFO  com.cts.inventory.controller.InventoryController - InventoryController.createItem - started
-2020-Jun-25 17:26:30 PM [main] INFO  com.cts.inventory.controller.InventoryController - InventoryController.createItem - ended
